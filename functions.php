@@ -139,6 +139,28 @@ function university_scripts() {
 add_action( 'wp_enqueue_scripts', 'university_scripts' );
 
 /**
+ * Add items to custom post types
+ */
+
+ function university_custom_post_types() {
+	register_post_type('Events', array(
+		'public' => true,
+		'rewrite' => array('slug', 'events'),
+		'has_archive' => true,
+		'labels' => array(
+			'name' => 'Events',
+			'add_new_item' => 'Add New Event',
+			'edit_item' => 'Edit Event',
+			'all_items' => 'All Events',
+			'singular_name' => 'Event',
+		),
+		'supports' => array('title', 'excerpt'),
+		'menu_icon' => 'dashicons-calendar'
+	));
+ }
+ add_action('init', 'university_custom_post_types');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
