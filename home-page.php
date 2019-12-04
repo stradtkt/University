@@ -100,4 +100,29 @@ $feature_content_3 = get_field('feature_content_3');
   </a>
 </div>
 </section>
+<section id="info-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+            <h3 class="mt-5">Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+                <h3>Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+                <h3>Lorem Ipsum</h3>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="mt-5 mb-5" style="background-image: url(<?php echo get_theme_file_uri('/images/university-grades-01.png') ?>); width: 100%; height: 100%; background-size: cover;"></div>
+            </div>
+            <div class="col-12 col-md-4">
+                <h3 class="mt-5">Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+                <h3>Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+                <h3>Lorem Ipsum</h3>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit ipsa dolorem velit quae dignissimos eum exercitationem, molestias harum facere totam, iure provident veritatis eos.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <?php get_footer(); ?>

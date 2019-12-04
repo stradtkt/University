@@ -45,11 +45,11 @@
 						<p class="text-center"><?php bloginfo('description'); ?></p>
 						<nav>
 							<ul class="min-list social-icons-list group">
-								<li><a href="#" class="social-color-facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="social-color-twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="social-color-youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="social-color-linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="social-color-instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="https://facebook.com" class="social-color-facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="https://twitter.com" class="social-color-twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="https://youtube.com" class="social-color-youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+								<li><a href="https://linkedin.com" class="social-color-linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+								<li><a href="https://instagram.com" class="social-color-instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 							</ul>
 						</nav>
 					</div>

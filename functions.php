@@ -157,6 +157,32 @@ add_action( 'wp_enqueue_scripts', 'university_scripts' );
 		'supports' => array('title', 'excerpt'),
 		'menu_icon' => 'dashicons-calendar'
 	));
+	register_post_type('Professors', array(
+		'public' => true,
+		'rewrite' => array('slug', 'professors'),
+		'has_archive' => true,
+		'labels' => array(
+			'name' => 'Professors',
+			'add_new_item' => 'Add New Professor',
+			'edit_item' => 'Edit Professor',
+			'all_items' => 'All Professors',
+			'singular_name' => 'Professor',
+		),
+		'supports' => array('title', 'excerpt', 'thumbnail'),
+	));
+	register_post_type('Courses', array(
+		'public' => true,
+		'rewrite' => array('slug', 'courses'),
+		'has_archive' => true,
+		'labels' => array(
+			'name' => 'Courses',
+			'add_new_item' => 'Add New Course',
+			'edit_item' => 'Edit Course',
+			'all_items' => 'All Courses',
+			'singular_name' => 'Course',
+		),
+		'supports' => array('title', 'excerpt'),
+	));
  }
  add_action('init', 'university_custom_post_types');
 
