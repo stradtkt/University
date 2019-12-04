@@ -10,9 +10,9 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="header-box">
-                        <h1><?php the_title(); ?></h1>
-                        <p class="lead"><?php bloginfo('description'); ?></p>
+                    <div class="header-box__events">
+                        <h1 class="text-center"><?php the_title(); ?></h1>
+                        <p class="lead text-center"><?php bloginfo('description'); ?></p>
                     </div>
                 </div>
             </div>
