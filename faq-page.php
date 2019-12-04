@@ -20,5 +20,18 @@ get_header();
         </div>
     </header>
 </section>
+<section id="faq-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <?php 
+                while(have_posts()) {
+                    the_post(); ?>
+                    <?php the_content(); ?>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>
