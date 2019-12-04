@@ -39,26 +39,27 @@ $feature_content_3 = get_field('feature_content_3');
                 <div class="feature">
                     <i class="<?php echo $feature_image_1; ?>"></i>
                     <p class="lead text-center"><?php echo $feature_title_1; ?></p>
-                    <p class="text-center"><?php echo $feature_content_1; ?></p>
+                    <p class="feature-text text-center"><?php echo $feature_content_1; ?></p>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="feature">
                     <i class="<?php echo $feature_image_2; ?>"></i>
                     <p class="lead text-center"><?php echo $feature_title_2; ?></p>
-                    <p class="text-center"><?php echo $feature_content_2; ?></p>
+                    <p class="feature-text text-center"><?php echo $feature_content_2; ?></p>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="feature">
                     <i class="<?php echo $feature_image_3; ?>"></i>
                     <p class="lead text-center"><?php echo $feature_title_3; ?></p>
-                    <p class="text-center"><?php echo $feature_content_3; ?></p>
+                    <p class="feature-text text-center"><?php echo $feature_content_3; ?></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <section id="carousel-section">
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -99,5 +100,4 @@ $feature_content_3 = get_field('feature_content_3');
   </a>
 </div>
 </section>
-
 <?php get_footer(); ?>

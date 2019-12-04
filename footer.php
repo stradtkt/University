@@ -20,6 +20,7 @@
 					<p>&copy; Webkit Development Systems, 2019</p>
 				</div>
 				<div class="col-12 col-md-2">
+					<h4>Learn</h4>
 					<?php
 						wp_nav_menu(array(
 							'theme_location' => 'footerLocationOne',
@@ -29,6 +30,7 @@
 					?>
 				</div>
 				<div class="col-12 col-md-2">
+					<h4>Explore</h4>
 					<?php
 						wp_nav_menu(array(
 							'theme_location' => 'footerLocationTwo',
