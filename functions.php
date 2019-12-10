@@ -125,9 +125,10 @@ function university_scripts() {
 	wp_enqueue_style( 'university-style', get_stylesheet_uri() );
 	wp_enqueue_style('bootstrap-style', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
 	wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css');
-	wp_enqueue_script('jquery-script', '//code.jquery.com/jquery-3.4.1.slim.min.js');
+	wp_enqueue_script('jquery', '//code.jquery.com/jquery-3.4.1.slim.min.js');
 	wp_enqueue_script('popper-script', '//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js');
 	wp_enqueue_script('bootstrap-script', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js');
+	wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js');
 	wp_enqueue_script( 'university-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'university-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -182,6 +183,22 @@ add_action( 'wp_enqueue_scripts', 'university_scripts' );
 			'singular_name' => 'Course',
 		),
 		'supports' => array('title', 'excerpt'),
+	));
+	register_post_type('notes', array(
+		'show_in_rest' => true,
+		'public' => false,
+		'rewrite' => array('slug', 'notes'),
+		'has_archive' => true,
+		'show_ui' => true,
+		'labels' => array(
+			'name' => 'Notes',
+			'add_new_item' => 'Add New Note',
+			'edit_item' => 'Edit Note',
+			'all_items' => 'All Notes',
+			'singular_name' => 'Note',
+		),
+		'supports' => array('title', 'excerpt', 'thumbnail'),
+		'menu_icon' => 'dashicons-welcome-write-blog',
 	));
  }
  add_action('init', 'university_custom_post_types');
