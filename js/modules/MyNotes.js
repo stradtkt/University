@@ -7,6 +7,7 @@ class MyNotes {
     events() {
         $(".delete-note").on("click", this.deleteNote);
         $(".edit-note").on("click", this.editNote.bing(this));
+        $(".update-note").on("click", this.updateNote.bind(this));
     }
 
     editNote(e) {
@@ -42,6 +43,32 @@ class MyNotes {
             type: 'DELETE',
             success: (response) => {
                 thisNote.slideUp();
+                console.log("Congrats");
+                console.log(response);
+            },
+            error: (response) => {
+                console.log('Sorry');
+                console.log(response);
+            }
+        });
+    }
+
+    updateNote(e) {
+        console.log('You Clicked Delete');
+        var thisNote = $(e.target).parents("li");
+        var ourUpdatedPost = {
+            'title': thisNote.find(".note-title-field").val(),
+            'content': thisNote.find(".note-body-field").val()
+        }
+        $.ajax({
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader('X-WP-Nonce', universityData.nonce);
+            },
+            url: universityData.root_url + '/wp-json/wp/v2/notes/' + thisNote.data('id'),
+            type: 'POST',
+            data: ourUpdatedPost,
+            success: (response) => {
+                this.makeNoteReadOnly(thisNote);
                 console.log("Congrats");
                 console.log(response);
             },
