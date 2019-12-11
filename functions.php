@@ -185,6 +185,8 @@ add_action( 'wp_enqueue_scripts', 'university_scripts' );
 		'supports' => array('title', 'excerpt'),
 	));
 	register_post_type('notes', array(
+		'capability_type' => 'notes',
+		'map_meta_cap' => true,
 		'show_in_rest' => true,
 		'public' => false,
 		'rewrite' => array('slug', 'notes'),
@@ -230,3 +232,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+//Force note posts to be private
+add_filter('wp_insert_post_data', 'make_note_private');
+function make_note_private($data) {
+	if($data['post_type'] == 'note' AND $data['post_status'] != 'trash') {
+		$data['post_status'] = "private";
+	}
+	return $data;
+}
