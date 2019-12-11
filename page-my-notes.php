@@ -34,6 +34,13 @@ get_header();
                     'posts_per_page' => -1,
                     'author' => get_current_user_id()
                 )); ?>
+
+                <div class="create-note">
+                    <h2 class="headline headline--medium">Create New Note</h2>
+                    <input class="new-note-title" type="text" placeholder="Title">
+                    <textarea class="new-note-body" placeholder="Your Note Here..."></textarea>
+                    <span class="submit-note">Create Note</span>
+                </div>
                 
                 <ul class="min-list link-list" id="my-notes">
                     <?php while($myNotes->have_posts()) {
