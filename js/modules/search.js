@@ -2,22 +2,50 @@ import $ from 'jquery';
 
 class Search {
     constructor() {
+        this.resultsDiv = $('#search-overlay__results');
         this.openButton = $('.js-search-trigger');
         this.closeButton = $('.search-overlay__close');
         this.searchOverlay = $('.search-overlay');
+        this.searchField = $("#search-term");
         this.events();
         this.isOverlayOpen = false;
+        this.isSpinnerVisable = false;
+        this.previousValue;
+        this.typingTimer;
     }
 
     events() {
         this.openButton.on("click", this.openOverlay.bind(this));
         this.closeButton.on("click", this.closeOverlay.bind(this));
         $(document).on("keyup", this.keyPressDispatcher.bind(this));
+        this.searchField.on("keyup", this.typingLogic.bind(this));
+    }
+    typingLogic() {
+        if(this.searchField.val() != this.previousValue) {
+            clearTimeout(this.typingTimer);
+            if(this.searchField.val()) {
+                if(this.isSpinnerVisable) {
+                    this.resultsDiv.html('<div class="spinner-loader"></div>');
+                    this.isSpinnerVisable = true;
+                }
+                this.typingTimer = setTimeout(this.getResults.bind(this), 500);
+            } else {
+                this.resultsDiv.html('');
+                this.isSpinnerVisable = false;
+            }
+        }
+        
+        this.previousValue = this.searchField.val();
+    }
+
+    getResults() {
+        this.resultsDiv.html("")
+        this.isSpinnerVisable = false;
     }
 
     keyPressDispatcher(e) {
         // console.log(e.keyCode);
-        if(e.keyCode == 83 && !this.isOverlayOpen) {
+        if(e.keyCode == 83 && !this.isOverlayOpen && $("input, textarea").is(':focus')) {
             this.openOverlay();
             
         }
