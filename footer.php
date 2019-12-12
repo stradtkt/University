@@ -58,7 +58,15 @@
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
-
+<div class="search-overlay">
+	<div class="search-overlay__top">
+		<div class="container">
+			<i class="fas fa-search search-overlay__icon" aria-hidden="true"></i>
+			<input type="text" id="search-term" class="search-term" placeholder="What are you looking for?">
+			<i class="fas fa-search search-overlay__close" aria-hidden="true"></i>
+		</div>
+	</div>
+</div>
 <?php wp_footer(); ?>
 
 </body>
