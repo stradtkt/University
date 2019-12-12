@@ -1613,3 +1613,15 @@ body {
   .update-note--visible {
 	visibility: visible;
   }
+  .note-limit-message {
+	visibility: hidden;
+	opacity: 0;
+	transition: all .3s ease-out;
+	color: #c32929;
+	font-weight: bold;
+  }
+  
+  .note-limit-message.active {
+	visibility: visible;
+	opacity: 1;
+  }

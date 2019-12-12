@@ -6,7 +6,15 @@
  *
  * @package University
  */
-
+function university_custom_rest() {
+	register_rest_field('post', 'authorName', array(
+		'get_callback' => function() {return get_the_author();}
+	));
+	register_rest_field('notes', 'userNoteCount', array(
+		'get_callback' => function() {return count_user_posts(get_current_user_id(), 'notes');}
+	));
+}
+add_action('rest_api_init', 'university_custom_rest');
 if ( ! function_exists( 'university_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -233,8 +241,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 //Force note posts to be private
-add_filter('wp_insert_post_data', 'make_note_private');
-function make_note_private($data) {
+add_filter('wp_insert_post_data', 'make_note_private', 10, 2);
+function make_note_private($data, $postarr) {
+	if($data['post_type'] == 'note') {
+		if(count_user_posts(get_current_user_id(), 'notes') > 4 AND !$postarr['ID']) {
+			die("You have reached your note limit.");
+		}
+		$data['post_content'] = sanitize_textarea_field($data['post_content']);
+		$data['post_title'] = sanitize_text_field($data['post_title']);
+	}
 	if($data['post_type'] == 'note' AND $data['post_status'] != 'trash') {
 		$data['post_status'] = "private";
 	}
